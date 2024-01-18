@@ -3,6 +3,9 @@ const genMarkDown = require('./utils/generateMarkdown');
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+/*
+If there is time, add Validate.
+*/
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -55,6 +58,8 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
 
+        // MIGHT ADD VALIDATE: if(!data.title){throw new Error('YOU NEED A TITLE')};
+        
         fileName = `${data.title.toLowerCase().split(' ').join('')}.md`;
     
         fs.writeFile(fileName, genMarkDown(data), (err) => {
@@ -66,9 +71,12 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
     .then((data) => {
+        
         writeToFile('README.md', data);
-    });
-    
+    })
+    // .catch((error) => {
+    //     console.error(error.message);
+    // });
 }
 
 // Function call to initialize app
