@@ -42,7 +42,7 @@ const questions = [
     {
         type:'list',
         name:'license',
-        choices: ['MIT', 'ISC', 'Apache license 2.0', 'The Unlicense']
+        choices: ['MIT','ISC','Apache','Unlicensed']
     },
     {
         type:'input',
