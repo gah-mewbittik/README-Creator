@@ -18,7 +18,7 @@ N/A
 
 ## Usage
 
-To view the application in action, simply click the following link: https://gah-mewbittik.github.io/City-Forecast/
+To view the application in action, simply click the following link: https://drive.google.com/file/d/1t9bPOVQiuZMAbsmTnVis25f9a2nEpl6s/view?usp=drive_link
 The link will redirect you to a video demonstration of the application in action. The README-Creator application functionality generates specific questions related to README file content requirements and generates a professional README file from the users's responses.  
 
 ## Credits
