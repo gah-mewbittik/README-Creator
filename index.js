@@ -1,23 +1,31 @@
-// TODO: Include packages needed for this application
+// packages needed for this application
 const genMarkDown = require('./utils/generateMarkdown');
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-/*
-If there is time, add Validate.
-*/
-
-// TODO: Create an array of questions for user input
+// an array of questions for user input
 const questions = [
     {
         type:'input',
         name:'title',
-        message: 'What is the title of your project?'
+        message: 'What is the title of your project?',
+        validate: (input) =>{ //checks if you entered a title
+            if(!input.trim()){
+                return 'Please enter a title';
+            }
+            return true;
+        }
     },
     {
         type:'input',
         name:'description',
-        message: 'What is the description of your project?'
+        message: 'What is the description of your project?',
+        validate: (input) =>{ //checks if you entered a description
+            if(!input.trim()){
+                return 'You need to add a description';
+            }
+            return true;
+        }
     },
     {
         type:'input',
@@ -47,18 +55,28 @@ const questions = [
     {
         type:'input',
         name:'username',
-        message: 'Enter your github username: '
+        message: 'Enter your github username: ',
+        validate: (input) =>{  //checks if you entered a username
+            if(!input.trim()){
+                return 'Please enter your Github username';
+            }
+            return true;
+        }
     },{
         type:'input',
         name:'email',
-        message: 'Enter your email: '
+        message: 'Enter your email: ',
+        validate: (input) =>{  //checks if you entered an email
+            if(!input.trim()){
+                return 'Please provide an email';
+            }
+            return true;
+        }
     }
 ];
 
-// TODO: Create a function to write README file
+// function to write README file
 function writeToFile(fileName, data) {
-
-        // MIGHT ADD VALIDATE: if(!data.title){throw new Error('YOU NEED A TITLE')};
         
         fileName = `${data.title.toLowerCase().split(' ').join('')}.md`;
     
@@ -67,16 +85,17 @@ function writeToFile(fileName, data) {
         });
 }
 
-// TODO: Create a function to initialize app
+// function to initialize app
 function init() {
     inquirer.prompt(questions)
     .then((data) => {
-        
+    
         writeToFile('README.md', data);
     })
-    // .catch((error) => {
-    //     console.error(error.message);
-    // });
+    .catch((error) => {
+        console.error(error.message);
+
+    });
 }
 
 // Function call to initialize app
