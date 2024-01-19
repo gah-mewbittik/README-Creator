@@ -6,7 +6,9 @@ The purpose of this project is to create a ReadMe file that includes everything 
 This project was developed with Inquirer version 8.2.4. Using Inquirer assisted in forming and structuring of our questions and responses.  
 
 The following is an image of a newly generated README file application.
-![Alt text](./assets/images/cityForecast.png) 
+![Alt text](./assets/images/generatedREADME_preview.png)
+The Following image are the questions the application used to create the readme file.
+![Alt text](./assets/images/README_questions.png)
 
 
 
